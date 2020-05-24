@@ -20,5 +20,7 @@ app.use(function(req, res, next) {
 const citiesRouter = require('./routes/cities');
 app.use('/cities', citiesRouter);
 
+const usersRouter = require('./routes/user');
+app.use('/user', usersRouter);
 
 app.listen(3000, () => console.log('Server Started'));

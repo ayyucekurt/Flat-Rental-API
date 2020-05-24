@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "506dde6d-eaca-4123-900d-205bbb6258aa",
+		"_postman_id": "06def4b8-2171-43b8-86a2-0975e114a245",
 		"name": "REST-FlatRental",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -38,6 +38,35 @@
 					"path": [
 						"cities",
 						"getProvinces"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"oguzkose11@gmail.com\",\n\t\"password\": \"password111\",\n\t\"info\": {\n\t\t\"name\": \"Oğuz\",\n\t\t\"surname\": \"Köse\",\n\t\t\"birthOfDate\":\"11/13/1996\",\n\t\t\"phoneNumber\":\"\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/user/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"register"
 					]
 				}
 			},
