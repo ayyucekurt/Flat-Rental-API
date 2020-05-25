@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "06def4b8-2171-43b8-86a2-0975e114a245",
+		"_postman_id": "7570c681-bd41-4eaf-ab37-98cfc32bc170",
 		"name": "REST-FlatRental",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -67,6 +67,35 @@
 					"path": [
 						"user",
 						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"oguzkose11@gmail.com\",\n\t\"password\": \"password\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/user/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"login"
 					]
 				}
 			},

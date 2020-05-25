@@ -1,0 +1,77 @@
+[{
+  "_id": {
+    "$oid": "5ecad0176fd0ac525e028df1"
+  },
+  "email": "oguzkose11@gmail.com",
+  "password": "$2b$13$hWB0txmrmQyPahdPvQo0OuDvtnYmZcaSzVmcSY4..p8gGt5gK0kty",
+  "personalInfo": {
+    "_id": {
+      "$oid": "5ecad0176fd0ac525e028df2"
+    },
+    "name": "Oğuz",
+    "surname": "Köse",
+    "birthOfDate": {
+      "$date": "1996-11-12T22:00:00Z"
+    },
+    "phoneNumber": ""
+  },
+  "personalDocuments": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ecade7368059a5c6aaee797"
+  },
+  "email": "ak@ak.com",
+  "password": "$2b$13$egb4OicS67a5qxk66rLlpOfWeJv7u1fhn.sdRKNIIlV9THGiKExZW",
+  "personalInfo": {
+    "_id": {
+      "$oid": "5ecade7368059a5c6aaee798"
+    },
+    "name": "ayy",
+    "surname": "kurt",
+    "birthOfDate": {
+      "$date": "2002-05-06T21:00:00Z"
+    },
+    "phoneNumber": ""
+  },
+  "personalDocuments": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ecae08168059a5c6aaee799"
+  },
+  "email": "ok@ok.com",
+  "password": "$2b$13$A6pbMG.wqd0nT2X.t0a4Q.NPcX/nrLIOqkOmRqgu.cqYTpnoPgTFu",
+  "personalInfo": {
+    "_id": {
+      "$oid": "5ecae08168059a5c6aaee79a"
+    },
+    "name": "akk",
+    "surname": "kurt",
+    "birthOfDate": {
+      "$date": "2001-11-11T22:00:00Z"
+    },
+    "phoneNumber": ""
+  },
+  "personalDocuments": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ecae19668059a5c6aaee79b"
+  },
+  "email": "gullperest@gmail.com",
+  "password": "$2b$13$k4B/Nw9cJ.8bQYm9cLFfAuQiQxuhVMiIUnxer1I1disTVcO4lIr7u",
+  "personalInfo": {
+    "_id": {
+      "$oid": "5ecae19668059a5c6aaee79c"
+    },
+    "name": "Gülperest",
+    "surname": "pinar",
+    "birthOfDate": {
+      "$date": "1979-02-14T21:00:00Z"
+    },
+    "phoneNumber": ""
+  },
+  "personalDocuments": [],
+  "__v": 0
+}]
