@@ -24,5 +24,3 @@ const usersRouter = require('./routes/user');
 app.use('/user', usersRouter);
 
 app.listen(3000, () => console.log('Server Started'));
-
-// pushluyom oğuz
