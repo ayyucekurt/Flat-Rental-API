@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken')
-
-// This will be used to create safe routes, that can only be accessed with valid token.
+// Safe routes --> settings, 
 module.exports = (req, res, next) => {
     try {
         const token = req.headers.authorization.split(" ")[1]

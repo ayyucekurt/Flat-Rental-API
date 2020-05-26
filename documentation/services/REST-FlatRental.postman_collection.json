@@ -1,105 +1,259 @@
 {
 	"info": {
-		"_postman_id": "7570c681-bd41-4eaf-ab37-98cfc32bc170",
+		"_postman_id": "6152fc5f-b5ba-4333-b719-e023fffb137c",
 		"name": "REST-FlatRental",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "GetDistrict",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/cities/Çanakkale",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"cities",
-						"Çanakkale"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GetProvince",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/cities/getProvinces",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"cities",
-						"getProvinces"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Register",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"email\": \"oguzkose11@gmail.com\",\n\t\"password\": \"password111\",\n\t\"info\": {\n\t\t\"name\": \"Oğuz\",\n\t\t\"surname\": \"Köse\",\n\t\t\"birthOfDate\":\"11/13/1996\",\n\t\t\"phoneNumber\":\"\"\n\t}\n}"
+			"name": "Location",
+			"item": [
+				{
+					"name": "GetDistrict",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/cities/Çanakka",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cities",
+								"Çanakka"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:3000/user/register",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"user",
-						"register"
-					]
+				{
+					"name": "GetProvince",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/cities/getProvinces",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cities",
+								"getProvinces"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Login",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"email\": \"oguzkose11@gmail.com\",\n\t\"password\": \"password\"\n}"
+			"name": "Settings",
+			"item": [
+				{
+					"name": "ChangePassword",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNTAxNzUzLCJleHAiOjE1OTA1MDUzNTN9.be7p7TNedTcpwP6VuVh5Ro8oj1rtCFTsYFnAjTLoh5s"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"oguzkose11@gmail.com\",\n\t\"oldpassword\":\"password11\",\n\t\"password\":\"password\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/settings/changePassword",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"settings",
+								"changePassword"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:3000/user/login",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"user",
-						"login"
-					]
+				{
+					"name": "UpdatePersonalInformation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNDk4MzgyLCJleHAiOjE1OTA1MDE5ODJ9.ZJIzwKCzKLHAhnxHGZbv92ANgsmaeCPHVVP-pnSiuFc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"oguzkose11@gmail.com\",\n\t\"name\": \"Kamil Oğuz\",\n\t\"surname\": \"Köse\",\n\t\"birthOfDate\":\"03/12/1996\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/settings/updatePersonalInformation",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"settings",
+								"updatePersonalInformation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUserDocuments",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNDk4MzgyLCJleHAiOjE1OTA1MDE5ODJ9.ZJIzwKCzKLHAhnxHGZbv92ANgsmaeCPHVVP-pnSiuFc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"oguzkose11@gmail.com\",\n\t\"personalDocuments\": \n\t[\n\t\t{ \n\t\t\t\"name\":\"TCID\",\n\t\t\t\"value\":\"10759976846\"\n\t\t},\n\t\t{ \n\t\t\t\"name\":\"Passport\",\n\t\t\t\"value\":\"3672632\"\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/settings/updateUserDocuments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"settings",
+								"updateUserDocuments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePhoneNumber",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNDk4MzgyLCJleHAiOjE1OTA1MDE5ODJ9.ZJIzwKCzKLHAhnxHGZbv92ANgsmaeCPHVVP-pnSiuFc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"oguzkose11@gmail.com\",\n\t\"phoneNumber\": \"90 534 924 5579\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/settings/updatePhoneNumber",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"settings",
+								"updatePhoneNumber"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"oguzkose100@gmail.com\",\n\t\"password\": \"password111\",\n\t\"info\": {\n\t\t\"name\": \"Oğuz\",\n\t\t\"surname\": \"Köse\",\n\t\t\"birthOfDate\":\"11/13/1996\",\n\t\t\"phoneNumber\":\"\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/authentication/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authentication",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"oguzkose11@gmail.com\",\n\t\"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/authentication/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authentication",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"protocolProfileBehavior": {}
