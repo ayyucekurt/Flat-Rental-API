@@ -96,6 +96,26 @@ router.post('/changePassword', checkAuth, (req, res, next) => {
         })
 })
 
+router.post('/changeHostingPreference', checkAuth, (req, res, next) => {
+    User.findOne({ email: req.body.email })
+        .exec()
+        .then(user => {
+            isUserNull(user)
+            user.isHostActivated = req.body.hostingPreference
+            user.save()
+                .then(result => {
+                    console.log(result)
+                    return successHandler._201(res)
+                })
+                .catch(err => {
+                    return errorHandler._500(err, res)
+                })
+        })
+        .catch(err => {
+            return errorHandler._500(err, res)
+        })
+})
+
 const isUserNull = user => {
     if (user === null) {
         return errorHandler._401(res)

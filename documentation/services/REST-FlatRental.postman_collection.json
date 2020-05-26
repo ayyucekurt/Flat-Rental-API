@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6152fc5f-b5ba-4333-b719-e023fffb137c",
+		"_postman_id": "7a92bb84-c406-4e54-8afa-bbbe8334163c",
 		"name": "REST-FlatRental",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -81,6 +81,40 @@
 							"path": [
 								"settings",
 								"changePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChangeHostingPreference",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNTE4NjAyLCJleHAiOjE1OTA1MjIyMDJ9.a4XyKQW8dwvaFu1JvUteh_U7W2R6UjwVjZ2LOyZKQBU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"oguzkose11@gmail.com\",\n\t\"hostingPreference\":\"true\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/settings/changeHostingPreference",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"settings",
+								"changeHostingPreference"
 							]
 						}
 					},
@@ -236,7 +270,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"oguzkose11@gmail.com\",\n\t\"password\": \"password\"\n}"
+							"raw": "{\n\t\"email\": \"oguzkose11@gmail.com\",\n\t\"password\": \"password111\"\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/authentication/login",
@@ -247,6 +281,46 @@
 							"path": [
 								"authentication",
 								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Rentals",
+			"item": [
+				{
+					"name": "AddNewRental",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNTE4NjAyLCJleHAiOjE1OTA1MjIyMDJ9.a4XyKQW8dwvaFu1JvUteh_U7W2R6UjwVjZ2LOyZKQBU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"oguzkose11@gmail.com\",\n    \"info\": {\n        \"roomCount\": 2,\n        \"bedCount\": 1,\n        \"bathCount\": 1,\n        \"maxGuestsCount\": 2,\n        \"description\": \"Çok güzel bir ev\"\n    },\n    \"location\": {\n        \"country\": \"Turkey\",\n        \"city\": \"İzmir\",\n        \"province\": \"Konak\"\n    },\n    \"price\": {\n        \"amount\": 120,\n        \"currency\": \"TRY\"\n    },\n    \"photos\": [\n        \"1\",\n        \"2\",\n        \"3\"\n    ],\n    \"features\": [\n        {\n            \"key\": \"Wifi\",\n            \"value\": \"true\"\n        },\n        {\n            \"key\": \"TV\",\n            \"value\": \"true\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/rentals/addNewRental",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"rentals",
+								"addNewRental"
 							]
 						}
 					},

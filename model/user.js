@@ -26,7 +26,7 @@ const PersonalDocumentsSchema = new mongoose.Schema({
 
 const UserSchema = new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId
-    ,email: {
+    , email: {
         type: String,
         unique: true,
         required: true
@@ -41,6 +41,11 @@ const UserSchema = new mongoose.Schema({
     },
     personalDocuments: {
         type: [PersonalDocumentsSchema],
+        required: false
+    },
+    isHostActivated: {
+        type: Boolean,
+        default: false,
         required: false
     }
 });

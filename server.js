@@ -26,6 +26,9 @@ app.use('/authentication', authenticationRouter);
 const settingsRouter = require('./routes/settings')
 app.use('/settings', settingsRouter)
 
+const rentalsRouter = require('./routes/rentals')
+app.use('/rentals', rentalsRouter)
+
 /* const usersRouter = require('./routes/user');
 app.use('/user', usersRouter);
  */
