@@ -1,0 +1,25 @@
+
+Rentals
+
+1- Add rental
+2- delete rental
+3- change features
+4- update pictures
+5- change description
+6- get rental info // details page
+
+Search
+
+1- getRantals — in the selected location
+2-load more (pagination)
+
+User
+
+1- add review
+2- delete review
+
+Transactions/Reservation
+
+1- approve Transaction (host)
+2- make Reservation (guest)
+3- cancel reservation
