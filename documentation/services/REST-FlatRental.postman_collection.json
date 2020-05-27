@@ -98,7 +98,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNTI2MTMzLCJleHAiOjE1OTA1Mjk3MzN9.arh_VyYyGuXc68gxri-q--HxM8a2IG-letm8MbGCVOA",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjE0MjM3LCJleHAiOjE1OTA2MTc4Mzd9.THmpme3dAvNHeberhmmyKV_ztbzYaGGXu5yULDBLP_Y",
 								"type": "text"
 							}
 						],
@@ -304,13 +304,13 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNTI2MTMzLCJleHAiOjE1OTA1Mjk3MzN9.arh_VyYyGuXc68gxri-q--HxM8a2IG-letm8MbGCVOA",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjE0MjM3LCJleHAiOjE1OTA2MTc4Mzd9.THmpme3dAvNHeberhmmyKV_ztbzYaGGXu5yULDBLP_Y",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"oguzkose11@gmail.com\",\n    \"info\": {\n        \"roomCount\": 2,\n        \"bedCount\": 1,\n        \"bathCount\": 1,\n        \"maxGuestsCount\": 2,\n        \"description\": \"Çok güzel bir ev\"\n    },\n    \"location\": {\n        \"country\": \"Turkey\",\n        \"city\": \"İzmir\",\n        \"province\": \"Konak\"\n    },\n    \"price\": {\n        \"amount\": 120,\n        \"currency\": \"TRY\"\n    },\n    \"photos\": [\n        \"1\",\n        \"2\",\n        \"3\"\n    ],\n    \"features\": [\n        {\n            \"key\": \"Wifi\",\n            \"value\": \"true\"\n        },\n        {\n            \"key\": \"TV\",\n            \"value\": \"true\"\n        }\n    ]\n}"
+							"raw": "{\n    \"email\": \"oguzkose11@gmail.com\",\n    \"info\": {\n        \"roomCount\": 2,\n        \"bedCount\": 1,\n        \"bathCount\": 1,\n        \"maxGuestsCount\": 2,\n        \"description\": \"Çok güzel bir ev\"\n    },\n    \"location\": {\n        \"country\": \"Turkey\",\n        \"city\": \"Çanakkale\",\n        \"province\": \"Biga\"\n    },\n    \"price\": {\n        \"amount\": 150,\n        \"currency\": \"TRY\"\n    },\n    \"photos\": [\n        \"1\",\n        \"2\",\n        \"3\"\n    ],\n    \"features\": [\n        {\n            \"key\": \"Wifi\",\n            \"value\": \"true\"\n        },\n        {\n            \"key\": \"TV\",\n            \"value\": \"true\"\n        }\n    ]\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/rentals/addNewRental",
@@ -321,6 +321,43 @@
 							"path": [
 								"rentals",
 								"addNewRental"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRentals",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjE0MjM3LCJleHAiOjE1OTA2MTc4Mzd9.THmpme3dAvNHeberhmmyKV_ztbzYaGGXu5yULDBLP_Y"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location\": {\n        \"country\": \"Turkey\",\n        \"city\": \"Çanakkale\",\n        \"province\": \"Biga\"\n    },\n    \"page\":1,\n\t\"limit\":10\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/rentals/getRentals",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"rentals",
+								"getRentals"
 							]
 						}
 					},
@@ -484,12 +521,12 @@
 							{
 								"key": "Authorization",
 								"type": "text",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjAxODc5LCJleHAiOjE1OTA2MDU0Nzl9.z4JT0sR0xmKb_OYhRE2b1GYBSYlULsvc-Om09m8gRFY"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjE0MjM3LCJleHAiOjE1OTA2MTc4Mzd9.THmpme3dAvNHeberhmmyKV_ztbzYaGGXu5yULDBLP_Y"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\":\"oguzkose11@gmail.com\"\n}"
+							"raw": "{\n\t\"email\":\"oguzkose11@gmail.com\",\n\t\"page\":1,\n\t\"limit\":10\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/reservations/getActiveReservations",
@@ -521,12 +558,12 @@
 							{
 								"key": "Authorization",
 								"type": "text",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjAxODc5LCJleHAiOjE1OTA2MDU0Nzl9.z4JT0sR0xmKb_OYhRE2b1GYBSYlULsvc-Om09m8gRFY"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjE0MjM3LCJleHAiOjE1OTA2MTc4Mzd9.THmpme3dAvNHeberhmmyKV_ztbzYaGGXu5yULDBLP_Y"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\":\"oguzkose11@gmail.com\"\n}"
+							"raw": "{\n\t\"email\":\"oguzkose11@gmail.com\",\n\t\"page\":1,\n\t\"limit\":10\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/reservations/getAllReservationHistory",
@@ -558,12 +595,12 @@
 							{
 								"key": "Authorization",
 								"type": "text",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjAxODc5LCJleHAiOjE1OTA2MDU0Nzl9.z4JT0sR0xmKb_OYhRE2b1GYBSYlULsvc-Om09m8gRFY"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjE0MjM3LCJleHAiOjE1OTA2MTc4Mzd9.THmpme3dAvNHeberhmmyKV_ztbzYaGGXu5yULDBLP_Y"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\":\"oguzkose11@gmail.com\"\n}"
+							"raw": "{\n\t\"email\":\"oguzkose11@gmail.com\",\n\t\"page\":1,\n\t\"limit\":10\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/reservations/getRejectedReservations",

@@ -53,7 +53,7 @@ router.post('/cancelReservation', checkAuth, (req, res) => {
 })
 
 router.get('/getActiveReservations', checkAuth, (req, res) => {
-    Reservation.find({ guestEmail: req.body.email,
+    /* Reservation.find({ guestEmail: req.body.email,
         checkOutDate: { "$gte": new Date() },
         status: { "$in": [reservationEnum.PENDING, reservationEnum.APPROVED] }
     }).exec()
@@ -62,31 +62,22 @@ router.get('/getActiveReservations', checkAuth, (req, res) => {
         })
         .catch(err => {
             return errorHandler._500(err, res)
-        })
+        }) */
+    return reservationPaginator({ guestEmail: req.body.email,
+            checkOutDate: { "$gte": new Date() },
+            status: { "$in": [reservationEnum.PENDING, reservationEnum.APPROVED] } },
+        req, res)
 })
 
 router.get('/getRejectedReservations', checkAuth, (req, res) => {
-    Reservation.find({ guestEmail: req.body.email,
-        checkOutDate: { "$gte": new Date() },
-        status: { "$in": [reservationEnum.CANCELLED, reservationEnum.REJECTED] } })
-        .exec()
-        .then(reservations => {
-            return res.status(200).json({ message: 'success', "rejectedReservations": reservations })
-        })
-        .catch(err => {
-            return errorHandler._500(err, res)
-        })
+    return reservationPaginator({ guestEmail: req.body.email,
+            checkOutDate: { "$gte": new Date() },
+            status: { "$in": [reservationEnum.CANCELLED, reservationEnum.REJECTED] } },
+        req, res)
 })
 
 router.get('/getAllReservationHistory', checkAuth, (req, res) => {
-    Reservation.find({ guestEmail: req.body.email })
-        .exec()
-        .then(reservations => {
-            return res.status(200).json({ message: 'success', "activeReservations": reservations })
-        })
-        .catch(err => {
-            return errorHandler._500(err, res)
-        })
+    return reservationPaginator( { guestEmail: req.body.email }, req, res)
 })
 
 const isEmailNull = (email, res) => {
@@ -112,6 +103,42 @@ const changeReservationStatus = (status, req, res) => {
         .catch(err => {
             return errorHandler._500(err, res)
         })
+}
+
+const reservationPaginator = (query, req, res) => {
+    const page = parseInt(req.body.page)
+    const limit = parseInt(req.body.limit)
+
+    const startIndex = (page - 1) * limit
+    const endIndex = page * limit
+
+    const results = {}
+
+    if (endIndex < Reservation.countDocuments().exec()) {
+        results.next = {
+            page: page + 1,
+            limit: limit
+        }
+    }
+
+    if (startIndex > 0) {
+        results.previous = {
+            page: page - 1,
+            limit: limit
+        }
+    }
+
+    Reservation.find(query)
+        .sort({ _id: 1 })
+        .limit(limit)
+        .skip(startIndex)
+        .exec()
+        .then(reservations => {
+            results.reservations = reservations
+            return res.status(200).json({ message: 'success', results })
+        }).catch(err => {
+        return errorHandler._500(err, res)
+    })
 }
 
 module.exports = router;

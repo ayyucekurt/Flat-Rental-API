@@ -65,3 +65,4 @@ const RentalSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Rental', RentalSchema);
+module.exports.locationInfo = LocationSchema
