@@ -1,0 +1,55 @@
+[{
+  "_id": {
+    "$oid": "5ecd8117f4521804fdd4c584"
+  },
+  "notAvailableDates": [],
+  "photos": [
+    "1",
+    "2",
+    "3"
+  ],
+  "email": "oguzkose11@gmail.com",
+  "rentalInfo": {
+    "_id": {
+      "$oid": "5ecd8117f4521804fdd4c585"
+    },
+    "roomCount": 2,
+    "bedCount": 1,
+    "bathCount": 1,
+    "maxGuestsCount": 2,
+    "description": "Çok güzel bir ev"
+  },
+  "locationInfo": {
+    "_id": {
+      "$oid": "5ecd8117f4521804fdd4c586"
+    },
+    "country": "Turkey",
+    "city": "İzmir",
+    "province": "Konak"
+  },
+  "price": {
+    "_id": {
+      "$oid": "5ecd8117f4521804fdd4c587"
+    },
+    "amount": 120,
+    "currency": "TRY"
+  },
+  "features": [
+    {
+      "_id": {
+        "$oid": "5ecd8117f4521804fdd4c588"
+      },
+      "key": "Wifi",
+      "value": "true"
+    },
+    {
+      "_id": {
+        "$oid": "5ecd8117f4521804fdd4c589"
+      },
+      "key": "TV",
+      "value": "true"
+    }
+  ],
+  "reviews": [],
+  "__v": 0
+}]

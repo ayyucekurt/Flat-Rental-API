@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-// Safe routes --> settings, 
+// Safe routes --> settings, reservations,...
 module.exports = (req, res, next) => {
     try {
         const token = req.headers.authorization.split(" ")[1]

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7a92bb84-c406-4e54-8afa-bbbe8334163c",
+		"_postman_id": "030614a7-76b9-46c0-a61a-ae8344c2bd8e",
 		"name": "REST-FlatRental",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -98,7 +98,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNTE4NjAyLCJleHAiOjE1OTA1MjIyMDJ9.a4XyKQW8dwvaFu1JvUteh_U7W2R6UjwVjZ2LOyZKQBU",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNTI2MTMzLCJleHAiOjE1OTA1Mjk3MzN9.arh_VyYyGuXc68gxri-q--HxM8a2IG-letm8MbGCVOA",
 								"type": "text"
 							}
 						],
@@ -270,7 +270,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"oguzkose11@gmail.com\",\n\t\"password\": \"password111\"\n}"
+							"raw": "{\n\t\"email\": \"oguzkose11@gmail.com\",\n\t\"password\": \"password\"\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/authentication/login",
@@ -304,7 +304,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNTE4NjAyLCJleHAiOjE1OTA1MjIyMDJ9.a4XyKQW8dwvaFu1JvUteh_U7W2R6UjwVjZ2LOyZKQBU",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNTI2MTMzLCJleHAiOjE1OTA1Mjk3MzN9.arh_VyYyGuXc68gxri-q--HxM8a2IG-letm8MbGCVOA",
 								"type": "text"
 							}
 						],
@@ -323,6 +323,260 @@
 								"addNewRental"
 							]
 						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Reservations",
+			"item": [
+				{
+					"name": "MakeReservation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjAxODc5LCJleHAiOjE1OTA2MDU0Nzl9.z4JT0sR0xmKb_OYhRE2b1GYBSYlULsvc-Om09m8gRFY"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"rentalId\":\"5ecd8117f4521804fdd4c584\",\n    \"email\": \"oguzkose11@gmail.com\",\n    \"checkInDate\": \"06/12/2020\",\n    \"checkOutDate\": \"06/15/2020\",\n    \"price\": {\n        \"amount\": 549.57,\n        \"currency\": \"TRY\"\n    }\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/reservations/makeReservation",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reservations",
+								"makeReservation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApproveReservation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjAxODc5LCJleHAiOjE1OTA2MDU0Nzl9.z4JT0sR0xmKb_OYhRE2b1GYBSYlULsvc-Om09m8gRFY"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"reservationId\":\"5ecea8ac65c05d11b3e6519a\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/reservations/approveReservation",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reservations",
+								"approveReservation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RejectReservation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNTI5ODE2LCJleHAiOjE1OTA1MzM0MTZ9.viEb8oCDgSlCwnt9tRJEVGgna2AHon2j2-oy7X2RMgI"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"reservationId\":\"5ecd9201c7e8080c3baa30ca\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/reservations/rejectReservation",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reservations",
+								"rejectReservation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CancelReservation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNTI5ODE2LCJleHAiOjE1OTA1MzM0MTZ9.viEb8oCDgSlCwnt9tRJEVGgna2AHon2j2-oy7X2RMgI"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"reservationId\":\"5ecd9201c7e8080c3baa30ca\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/reservations/cancelReservation",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reservations",
+								"cancelReservation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetActiveReservations",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjAxODc5LCJleHAiOjE1OTA2MDU0Nzl9.z4JT0sR0xmKb_OYhRE2b1GYBSYlULsvc-Om09m8gRFY"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"oguzkose11@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/reservations/getActiveReservations",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reservations",
+								"getActiveReservations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllReservationHistory",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjAxODc5LCJleHAiOjE1OTA2MDU0Nzl9.z4JT0sR0xmKb_OYhRE2b1GYBSYlULsvc-Om09m8gRFY"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"oguzkose11@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/reservations/getAllReservationHistory",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reservations",
+								"getAllReservationHistory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRejectedReservations",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjAxODc5LCJleHAiOjE1OTA2MDU0Nzl9.z4JT0sR0xmKb_OYhRE2b1GYBSYlULsvc-Om09m8gRFY"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"oguzkose11@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/reservations/getRejectedReservations",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reservations",
+								"getRejectedReservations"
+							]
+						},
+						"description": "This Api call fetches both cancelled and rejected reservations"
 					},
 					"response": []
 				}
