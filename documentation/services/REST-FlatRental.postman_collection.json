@@ -293,6 +293,40 @@
 			"name": "Rentals",
 			"item": [
 				{
+					"name": "DeleteRental",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjkyNDAyLCJleHAiOjE1OTA2OTYwMDJ9.BfnG1bgGi_mvX9rjUng1SQlzu-JNPvexoYqhX0X7Cc0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"5ecd660f1fedc53f1f53b883\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/rentals/deleteRental",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"rentals",
+								"deleteRental"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "AddNewRental",
 					"request": {
 						"method": "POST",
@@ -304,13 +338,13 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjk0ODQyLCJleHAiOjE1OTA2OTg0NDJ9.bLWzdy1PT_ZD6zV2xThSXlcbpJIGzDauI-IrLopwOHs",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjk5ODE5LCJleHAiOjE1OTA3MDM0MTl9.gVtQTzfqybT3lKl5EiofecmswTvITEmdeYjwV7lt7YA",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"oguzkose11@gmail.com\",\n    \"info\": {\n        \"roomCount\": 2,\n        \"bedCount\": 1,\n        \"bathCount\": 1,\n        \"maxGuestsCount\": 2,\n        \"description\": \"Çok güzel bir ev\"\n    },\n    \"location\": {\n        \"country\": \"Turkey\",\n        \"city\": \"Keles\",\n        \"province\": \"Bursa\"\n    },\n    \"price\": {\n        \"amount\": 150,\n        \"currency\": \"TRY\"\n    },\n    \"photos\": [\n        \"1\",\n        \"2\",\n        \"3\"\n    ],\n    \"features\": [\n        {\n            \"key\": \"Wifi\",\n            \"value\": \"true\"\n        },\n        {\n            \"key\": \"TV\",\n            \"value\": \"true\"\n        }\n    ]\n}"
+							"raw": "{\n    \"email\": \"oguzkose11@gmail.com\",\n    \"info\": {\n        \"roomCount\": 2,\n        \"bedCount\": 1,\n        \"bathCount\": 1,\n        \"maxGuestsCount\": 2,\n        \"description\": \"Çok güzel bir ev 3\"\n    },\n    \"location\": {\n        \"country\": \"Turkey\",\n        \"city\": \"İzmir\",\n        \"province\": \"Alsancak\"\n    },\n    \"price\": {\n        \"amount\": 180,\n        \"currency\": \"TRY\"\n    },\n    \"photos\": [\n        \"1\",\n        \"2\",\n        \"3\"\n    ],\n    \"features\": [\n        {\n            \"key\": \"Wifi\",\n            \"value\": \"true\"\n        },\n        {\n            \"key\": \"Balcony\",\n            \"value\": \"true\"\n        }\n    ]\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/rentals/addNewRental",
@@ -321,6 +355,183 @@
 							"path": [
 								"rentals",
 								"addNewRental"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRentals",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjE0MjM3LCJleHAiOjE1OTA2MTc4Mzd9.THmpme3dAvNHeberhmmyKV_ztbzYaGGXu5yULDBLP_Y"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location\": {\n        \"country\": \"Turkey\",\n        \"city\": \"Çanakkale\",\n        \"province\": \"Biga\"\n    },\n    \"page\":1,\n\t\"limit\":10\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/rentals/getRentals",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"rentals",
+								"getRentals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateFeatures",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjk2Njk5LCJleHAiOjE1OTA3MDAyOTl9.KMEuEEA6nhdmyV4RGZ6GXkk6sWcodV7n76uHZdBprFA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"5ecd9035660e7f40b3bfc683\",\n\t\"features\": \n\t[\n        {\n            \"key\": \"Wifi\",\n            \"value\": \"true\"\n        },\n        {\n            \"key\": \"TV\",\n            \"value\": \"true\"\n        },\n        {\n            \"key\": \"Iron\",\n            \"value\": \"true\"\n        },\n        {\n            \"key\": \"Garden\",\n            \"value\": \"true\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/rentals/updateFeatures",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"rentals",
+								"updateFeatures"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSelectedRental",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjk4NTM5LCJleHAiOjE1OTA3MDIxMzl9.6cBsYZWWpLY6E62A3X1UnFbWo9Nv9AdG-2cCL6Czw9I",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"5ecd9035660e7f40b3bfc683\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/rentals/getSelectedRental",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"rentals",
+								"getSelectedRental"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePhotos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjk1OTgwLCJleHAiOjE1OTA2OTk1ODB9.0Yz7Xxizay7UlLTuUiOiXOUwiQisx50SN1xP4MO4_AU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"5ecd9035660e7f40b3bfc683\",\n\t\"photos\": [\n        \"161\",\n        \"262\",\n        \"363\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/rentals/updatePhotos",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"rentals",
+								"updatePhotos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateDescription",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjk1NDc1LCJleHAiOjE1OTA2OTkwNzV9.cgfd04Zon-HWOS9SzYDeKznQFruFKzu6XSApaeBIHJw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"5ecd9035660e7f40b3bfc683\",\n\t\"description\": \".çokkkk güzelllll evvv buuuu\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/rentals/updateDescription",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"rentals",
+								"updateDescription"
 							]
 						}
 					},
