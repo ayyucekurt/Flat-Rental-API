@@ -11,6 +11,7 @@ const successHandler = require('../handler/successhandler')
 
 const User = require('../model/user');
 const Rental = require('../model/rental');
+const Feature = require('../model/rental').Feature
 
 router.post('/addNewRental', checkAuth, checkHosting, (req, res, next) => {
     const rental = new Rental({
@@ -45,5 +46,111 @@ router.post('/addNewRental', checkAuth, checkHosting, (req, res, next) => {
             return errorHandler._500(err, res)
         })
 })
+
+router.post('/deleteRental', checkAuth, (req, res, next) => {
+    Rental.findOne({ _id: req.body.id })
+            .exec()
+            .then( rental => {
+                if (rental == null) {
+                    return errorHandler._401(res)
+                } else {
+                    rental.deleteOne();
+                    rental.save();
+                    return successHandler._201(res)
+                }
+            })
+            .catch(err => {
+            return errorHandler._500(err, res)
+            })
+})
+
+router.post('/updateFeatures', checkAuth, (req, res, next) => {
+    Rental.findOne({ _id: req.body.id })
+        .exec()
+        .then(rental => {
+            if (rental === null) {
+                return errorHandler._401(res)
+            } else {
+                rental.features = req.body.features
+            }
+            rental.save()
+                .then(result => {
+                    console.log(result)
+                    return successHandler._201(res)
+                })
+                .catch(err => {
+                    return errorHandler._500(err, res)
+                })
+        })
+        .catch(err => {
+            return errorHandler._500(err, res)
+        })
+})
+
+router.post('/updatePhotos', checkAuth, (req, res, next) => {
+    Rental.findOne({ _id: req.body.id })
+        .exec()
+        .then(rental => {
+            if (rental == null) {
+                return errorHandler._401(res)
+            } else {
+                let arr = new Array()
+                arr = req.body.photos
+                arr.forEach( it => {
+                    rental.photos.push(it)
+                })
+            }
+            rental.save()
+                .then(result => {
+                    console.log(result)
+                    return successHandler._201(res)
+                })
+                .catch(err => {
+                    return errorHandler._500(err, res)
+                })
+        })
+        .catch(err => {
+            return errorHandler._500(err, res)
+        })
+})
+
+router.post('/updateDescription', checkAuth, (req, res, next) => {
+    Rental.findOne({ _id: req.body.id })
+        .exec()
+        .then(rental => {
+            if (rental === null) {
+                return errorHandler._401(res)
+            } else {
+                rental.rentalInfo.description = req.body.description
+            }
+            rental.save()
+                .then(result => {
+                    console.log(result)
+                    return successHandler._201(res)
+                })
+                .catch(err => {
+                    return errorHandler._500(err, res)
+                })
+        })
+        .catch(err => {
+            return errorHandler._500(err, res)
+        })
+})
+
+router.get('/getSelectedRental', (req, res) => {
+    Rental.findOne({ _id: req.body.id })
+        .exec()
+        .then(rental => {
+            if (rental == null) {
+                return errorHandler._401(res)
+            } else {
+                return res.status(200).json(rental)
+                //res.send(res)
+            }
+        })
+        .catch(err => {
+            return errorHandler._500(err, res)
+        })
+});
 
 module.exports = router;
