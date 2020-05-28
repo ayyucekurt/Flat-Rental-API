@@ -32,8 +32,10 @@ app.use('/rentals', rentalsRouter)
 const reservationRouter = require('./routes/reservations')
 app.use('/reservations', reservationRouter)
 
-/* const usersRouter = require('./routes/user');
-app.use('/user', usersRouter);
- */
+const searchRouter = require('./routes/search')
+app.use('/search', searchRouter)
+
+const usersRouter = require('./routes/user')
+app.use('/user', usersRouter)
 
 app.listen(3000, () => console.log('Server Started'));

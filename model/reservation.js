@@ -14,6 +14,7 @@ const ReservationEnum = {
 
 const ReservationSchema = new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
+    rentalId: { type: mongoose.Schema.Types.ObjectId, ref: 'Rental' },
     hostEmail: {
         type: String,
         required: true

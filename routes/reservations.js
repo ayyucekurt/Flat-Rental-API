@@ -10,6 +10,8 @@ const User = require('../model/user');
 const Rental = require('../model/rental')
 const Reservation = require('../model/reservation')
 const reservationEnum = require('../model/reservation').reservationEnum
+const Paginator = require('../middlewares/paginator')
+const DateCorrector = require('../middlewares/datecorrector')
 
 router.post('/makeReservation', checkAuth, (req, res, next) => {
     Rental.findOne({ _id: new mongoose.Types.ObjectId(req.body.rentalId) })
@@ -17,12 +19,19 @@ router.post('/makeReservation', checkAuth, (req, res, next) => {
         .then(rental => {
             isEmailNull(rental.email, res)
 
+            const dayList = desiredDays(new Date(req.body.checkInDate) + 1, new Date(req.body.checkOutDate) - 1)
+            dayList.forEach(date => {
+                rental.notAvailableDates.push(DateCorrector(date))
+            })
+            rental.save().catch(err => { return errorHandler._500(err, res) })
+
             const reservation = new Reservation({
                 _id: new mongoose.Types.ObjectId(),
+                rentalId: rental._id,
                 hostEmail: rental.email,
                 guestEmail: req.body.email,
-                checkInDate: req.body.checkInDate,
-                checkOutDate: req.body.checkOutDate,
+                checkInDate: DateCorrector(new Date(req.body.checkInDate)),
+                checkOutDate: DateCorrector(new Date(req.body.checkOutDate)),
                 totalPrice: req.body.price
             })
 
@@ -52,32 +61,35 @@ router.post('/cancelReservation', checkAuth, (req, res) => {
     changeReservationStatus(reservationEnum.CANCELLED, req, res)
 })
 
-router.get('/getActiveReservations', checkAuth, (req, res) => {
-    /* Reservation.find({ guestEmail: req.body.email,
-        checkOutDate: { "$gte": new Date() },
-        status: { "$in": [reservationEnum.PENDING, reservationEnum.APPROVED] }
-    }).exec()
-        .then(reservations => {
-            return res.status(200).json({ message: 'success', "activeReservations": reservations })
-        })
-        .catch(err => {
-            return errorHandler._500(err, res)
-        }) */
-    return reservationPaginator({ guestEmail: req.body.email,
+router.get('/getActiveReservations', checkAuth, async (req, res) => {
+    try {
+        const reservations = await Reservation.find({ guestEmail: req.body.email,
             checkOutDate: { "$gte": new Date() },
-            status: { "$in": [reservationEnum.PENDING, reservationEnum.APPROVED] } },
-        req, res)
+            status: { "$in": [reservationEnum.PENDING, reservationEnum.APPROVED] } }).sort({ checkInDate: -1 })
+        return Paginator(reservations, req, res)
+    } catch (err) {
+        return errorHandler._500(err, res)
+    }
 })
 
-router.get('/getRejectedReservations', checkAuth, (req, res) => {
-    return reservationPaginator({ guestEmail: req.body.email,
+router.get('/getRejectedReservations', checkAuth, async (req, res) => {
+    try {
+        const reservations = await Reservation.find({ guestEmail: req.body.email,
             checkOutDate: { "$gte": new Date() },
-            status: { "$in": [reservationEnum.CANCELLED, reservationEnum.REJECTED] } },
-        req, res)
+            status: { "$in": [reservationEnum.CANCELLED, reservationEnum.REJECTED] } }).sort({ checkInDate: -1 })
+        return Paginator(reservations, req, res)
+    } catch (err) {
+        return errorHandler._500(err, res)
+    }
 })
 
-router.get('/getAllReservationHistory', checkAuth, (req, res) => {
-    return reservationPaginator( { guestEmail: req.body.email }, req, res)
+router.get('/getAllReservationHistory', checkAuth, async (req, res) => {
+    try {
+        const reservations = await Reservation.find({ guestEmail: req.body.email }).sort({ checkInDate: -1 })
+        return Paginator(reservations, req, res)
+    } catch (err) {
+        return errorHandler._500(err, res)
+    }
 })
 
 const isEmailNull = (email, res) => {
@@ -105,40 +117,18 @@ const changeReservationStatus = (status, req, res) => {
         })
 }
 
-const reservationPaginator = (query, req, res) => {
-    const page = parseInt(req.body.page)
-    const limit = parseInt(req.body.limit)
-
-    const startIndex = (page - 1) * limit
-    const endIndex = page * limit
-
-    const results = {}
-
-    if (endIndex < Reservation.countDocuments().exec()) {
-        results.next = {
-            page: page + 1,
-            limit: limit
-        }
+var getDaysArray = function(start, end) {
+    for(var arr=[],dt=new Date(start); dt<=end; dt.setDate(dt.getDate()+1)){
+        arr.push(new Date(dt));
     }
+    return arr;
+};
 
-    if (startIndex > 0) {
-        results.previous = {
-            page: page - 1,
-            limit: limit
-        }
+const desiredDays = (checkInDate, checkOutDate) => {
+    for(var arr=[], dt=new Date(checkInDate); dt <= checkOutDate; dt.setDate(dt.getDate() + 1)){
+        arr.push(new Date(dt));
     }
-
-    Reservation.find(query)
-        .sort({ _id: 1 })
-        .limit(limit)
-        .skip(startIndex)
-        .exec()
-        .then(reservations => {
-            results.reservations = reservations
-            return res.status(200).json({ message: 'success', results })
-        }).catch(err => {
-        return errorHandler._500(err, res)
-    })
+    return arr;
 }
 
 module.exports = router;

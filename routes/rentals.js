@@ -46,46 +46,4 @@ router.post('/addNewRental', checkAuth, checkHosting, (req, res, next) => {
         })
 })
 
-// Searching
-// Not Working
-router.get('/getRentals', (req, res) => {
-    return rentalPaginator({ locationInfo: req.body.location }, req, res)
-})
-
-const rentalPaginator = (query, req, res) => {
-    const page = parseInt(req.body.page)
-    const limit = parseInt(req.body.limit)
-
-    const startIndex = (page - 1) * limit
-    const endIndex = page * limit
-
-    const results = {}
-
-    if (endIndex < Rental.countDocuments().exec()) {
-        results.next = {
-            page: page + 1,
-            limit: limit
-        }
-    }
-
-    if (startIndex > 0) {
-        results.previous = {
-            page: page - 1,
-            limit: limit
-        }
-    }
-
-    Rental.find(query)
-        .sort({ _id: 1 })
-        .limit(limit)
-        .skip(startIndex)
-        .exec()
-        .then(rentals => {
-            results.rentals = rentals
-            return res.status(200).json({ message: 'success', results })
-        }).catch(err => {
-        return errorHandler._500(err, res)
-    })
-}
-
 module.exports = router;

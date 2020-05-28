@@ -11,10 +11,11 @@ const PricePerNightSchema = new mongoose.Schema({
 });
 
 const ReviewInfoSchema = new mongoose.Schema({
-    reviewDate: Date,
-    reviewPoint: Number,
-    reviewContent: String,
-    reviewerId: String
+    _id: mongoose.Schema.Types.ObjectId,
+    reviewDate: { type: Date, required: true },
+    reviewPoint: { type: Number, required: true },
+    reviewContent: { type: String, required: true },
+    reviewerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 });
 
 const LocationSchema = new mongoose.Schema({
@@ -65,4 +66,5 @@ const RentalSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Rental', RentalSchema);
-module.exports.locationInfo = LocationSchema
+module.exports.Location = mongoose.model('Location', LocationSchema)
+module.exports.Review = mongoose.model('Review', ReviewInfoSchema)

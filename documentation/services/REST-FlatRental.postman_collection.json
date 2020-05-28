@@ -304,13 +304,13 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjE0MjM3LCJleHAiOjE1OTA2MTc4Mzd9.THmpme3dAvNHeberhmmyKV_ztbzYaGGXu5yULDBLP_Y",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjk0ODQyLCJleHAiOjE1OTA2OTg0NDJ9.bLWzdy1PT_ZD6zV2xThSXlcbpJIGzDauI-IrLopwOHs",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"oguzkose11@gmail.com\",\n    \"info\": {\n        \"roomCount\": 2,\n        \"bedCount\": 1,\n        \"bathCount\": 1,\n        \"maxGuestsCount\": 2,\n        \"description\": \"Çok güzel bir ev\"\n    },\n    \"location\": {\n        \"country\": \"Turkey\",\n        \"city\": \"Çanakkale\",\n        \"province\": \"Biga\"\n    },\n    \"price\": {\n        \"amount\": 150,\n        \"currency\": \"TRY\"\n    },\n    \"photos\": [\n        \"1\",\n        \"2\",\n        \"3\"\n    ],\n    \"features\": [\n        {\n            \"key\": \"Wifi\",\n            \"value\": \"true\"\n        },\n        {\n            \"key\": \"TV\",\n            \"value\": \"true\"\n        }\n    ]\n}"
+							"raw": "{\n    \"email\": \"oguzkose11@gmail.com\",\n    \"info\": {\n        \"roomCount\": 2,\n        \"bedCount\": 1,\n        \"bathCount\": 1,\n        \"maxGuestsCount\": 2,\n        \"description\": \"Çok güzel bir ev\"\n    },\n    \"location\": {\n        \"country\": \"Turkey\",\n        \"city\": \"Keles\",\n        \"province\": \"Bursa\"\n    },\n    \"price\": {\n        \"amount\": 150,\n        \"currency\": \"TRY\"\n    },\n    \"photos\": [\n        \"1\",\n        \"2\",\n        \"3\"\n    ],\n    \"features\": [\n        {\n            \"key\": \"Wifi\",\n            \"value\": \"true\"\n        },\n        {\n            \"key\": \"TV\",\n            \"value\": \"true\"\n        }\n    ]\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/rentals/addNewRental",
@@ -321,43 +321,6 @@
 							"path": [
 								"rentals",
 								"addNewRental"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetRentals",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjE0MjM3LCJleHAiOjE1OTA2MTc4Mzd9.THmpme3dAvNHeberhmmyKV_ztbzYaGGXu5yULDBLP_Y"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"location\": {\n        \"country\": \"Turkey\",\n        \"city\": \"Çanakkale\",\n        \"province\": \"Biga\"\n    },\n    \"page\":1,\n\t\"limit\":10\n}"
-						},
-						"url": {
-							"raw": "localhost:3000/rentals/getRentals",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"rentals",
-								"getRentals"
 							]
 						}
 					},
@@ -382,12 +345,12 @@
 							{
 								"key": "Authorization",
 								"type": "text",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjAxODc5LCJleHAiOjE1OTA2MDU0Nzl9.z4JT0sR0xmKb_OYhRE2b1GYBSYlULsvc-Om09m8gRFY"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjk0ODQyLCJleHAiOjE1OTA2OTg0NDJ9.bLWzdy1PT_ZD6zV2xThSXlcbpJIGzDauI-IrLopwOHs"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"rentalId\":\"5ecd8117f4521804fdd4c584\",\n    \"email\": \"oguzkose11@gmail.com\",\n    \"checkInDate\": \"06/12/2020\",\n    \"checkOutDate\": \"06/15/2020\",\n    \"price\": {\n        \"amount\": 549.57,\n        \"currency\": \"TRY\"\n    }\n}"
+							"raw": "{\n\t\"rentalId\":\"5ed01404982007b10e62e97c\",\n    \"email\": \"oguzkose11@gmail.com\",\n    \"checkInDate\": \"06/12/2020\",\n    \"checkOutDate\": \"06/15/2020\",\n    \"price\": {\n        \"amount\": 549.57,\n        \"currency\": \"TRY\"\n    }\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/reservations/makeReservation",
@@ -558,7 +521,7 @@
 							{
 								"key": "Authorization",
 								"type": "text",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjE0MjM3LCJleHAiOjE1OTA2MTc4Mzd9.THmpme3dAvNHeberhmmyKV_ztbzYaGGXu5yULDBLP_Y"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjg2MzQ2LCJleHAiOjE1OTA2ODk5NDZ9.aJQLX8LDubWC7gsEfJJ-_9IZEVdvoJhUeVzcd7s3l6Q"
 							}
 						],
 						"body": {
@@ -614,6 +577,92 @@
 							]
 						},
 						"description": "This Api call fetches both cancelled and rejected reservations"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "SearchRentals",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjg2MzQ2LCJleHAiOjE1OTA2ODk5NDZ9.aJQLX8LDubWC7gsEfJJ-_9IZEVdvoJhUeVzcd7s3l6Q"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location\": {\n        \"country\": \"Turkey\",\n        \"city\": \"Çanakkale\",\n        \"province\": \"Biga\"\n    },\n    \"page\":1,\n\t\"limit\":10\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/search/searchRentals",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"search",
+								"searchRentals"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "AddReview",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjg2MzQ2LCJleHAiOjE1OTA2ODk5NDZ9.aJQLX8LDubWC7gsEfJJ-_9IZEVdvoJhUeVzcd7s3l6Q"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rentalId\":\"5ecd8117f4521804fdd4c584\",\n    \"reviewPoint\": 4.5,\n    \"reviewContent\": \"Çok güzeldi çok memnun kaldık, bayıldık.\",\n    \"reviewerId\": \"5ecad0176fd0ac525e028df1\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/user/addReview",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"addReview"
+							]
+						}
 					},
 					"response": []
 				}
