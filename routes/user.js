@@ -10,7 +10,7 @@ const successHandler = require('../handler/successhandler')
 const Rental = require('../model/rental')
 const Review = require('../model/rental').Review
 
-router.get('/addReview', checkAuth, (req, res) => {
+router.get('/addReview', checkAuth, async (req, res) => {
     Rental.findOne({ _id: req.body.rentalId })
         .exec()
         .then(rental => {
@@ -22,14 +22,26 @@ router.get('/addReview', checkAuth, (req, res) => {
                 reviewerId: req.body.reviewerId
             }))
 
-            rental.save()
-                .then(result => {
-                    console.log(result)
-                    return successHandler._201(res)
-                })
-                .catch(err => {
-                    return errorHandler._500(err, res)
-                })
+            Rental.aggregate([
+                {$unwind: "$reviews"},
+                {$match: {_id: mongoose.Types.ObjectId(rental._id) }},
+                {$group: {_id: null, avgScore: {$avg: "$reviews.reviewPoint"}}}
+            ]).exec((aggregateErr, review) => {
+                if (aggregateErr) {
+                    errorHandler._500(aggregateErr, res)
+                }
+                console.log(review);
+                rental.avgPoints = review.avgPoints
+
+                rental.save()
+                    .then(result => {
+                        console.log(result)
+                        return successHandler._201(res)
+                    })
+                    .catch(err => {
+                        return errorHandler._500(err, res)
+                    })
+            })
         })
         .catch(err => {
             return errorHandler._500(err, res)

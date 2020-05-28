@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const DateCorrector = require('../middlewares/datecorrector')
 
 const FeaturesSchema = new mongoose.Schema({
     key: String,
@@ -68,7 +67,8 @@ const RentalSchema = new mongoose.Schema({
         type: Date,
         default: DateCorrector(new Date(Date.now())),
         required: true
-    }
+    },
+    avgPoints: { type: Number, required: false, default: 0 }
 });
 
 module.exports.Feature = mongoose.model('Feature', FeaturesSchema);
