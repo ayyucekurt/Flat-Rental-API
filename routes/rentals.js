@@ -11,15 +11,45 @@ const successHandler = require('../handler/successhandler')
 
 const User = require('../model/user');
 const Rental = require('../model/rental');
-const Feature = require('../model/rental').Feature
+const Feature = require('../model/rental').Feature;
+const multer = require('multer');
 
-router.post('/addNewRental', checkAuth, checkHosting, (req, res, next) => {
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, './uploads/');
+    },
+    filename: function(req, file, cb) {
+        cb(null, Date().now + file.originalname);
+    }
+});
+
+const fileFilter = (req, file, cb) => {
+    // reject a file
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }
+};
+
+const upload = multer({
+    storage: storage,
+    limits: {
+        fileSize: 1024 * 1024 * 5
+    },
+    fileFilter: fileFilter
+});
+
+router.post('/addNewRental', checkAuth, checkHosting, upload.single('photos'), (req, res, next) => {
+    console.log("efdv"+req.file.path);
+    const info = JSON.parse(req.body.info);
+    const loc = JSON.parse(req.body.location)
     const rental = new Rental({
         _id: new mongoose.Types.ObjectId(),
         email: req.body.email,
         rentalInfo: {
-            roomCount: req.body.info.roomCount,
-            bedCount: req.body.info.bedCount,
+            roomCount: info.roomCount,
+            bedCount: info.bedCount,
             bathCount: req.body.info.bathCount,
             maxGuestsCount: req.body.info.maxGuestsCount,
             description: req.body.info.description
@@ -33,13 +63,13 @@ router.post('/addNewRental', checkAuth, checkHosting, (req, res, next) => {
             amount: req.body.price.amount,
             currency: req.body.price.currency
         },
-        photos: req.body.photos,
+        photos: req.file.path,
         features: req.body.features
-    })
+    });
 
     rental.save()
         .then(result => {
-            console.log(result)
+            console.log(result);
             return successHandler._201(res)
         })
         .catch(err => {
@@ -49,19 +79,19 @@ router.post('/addNewRental', checkAuth, checkHosting, (req, res, next) => {
 
 router.post('/deleteRental', checkAuth, (req, res, next) => {
     Rental.findOne({ _id: req.body.id })
-            .exec()
-            .then( rental => {
-                if (rental == null) {
-                    return errorHandler._401(res)
-                } else {
-                    rental.deleteOne();
-                    rental.save();
-                    return successHandler._201(res)
-                }
-            })
-            .catch(err => {
+        .exec()
+        .then( rental => {
+            if (rental == null) {
+                return errorHandler._401(res)
+            } else {
+                rental.deleteOne();
+                rental.save();
+                return successHandler._201(res)
+            }
+        })
+        .catch(err => {
             return errorHandler._500(err, res)
-            })
+        })
 })
 
 router.post('/updateFeatures', checkAuth, (req, res, next) => {

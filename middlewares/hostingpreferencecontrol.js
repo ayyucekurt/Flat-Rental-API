@@ -3,7 +3,7 @@ const User = require('../model/user');
 
 module.exports = (req, res, next) => {
     try {
-        User.findOne({ email: req.body.email }, { isHostActivated: 1 })
+        User.findOne({ email: req.userData.email }, { isHostActivated: 1 })
             .exec()
             .then(hostingPreference => {
                 if (hostingPreference.isHostActivated === true) {
@@ -18,4 +18,3 @@ module.exports = (req, res, next) => {
         return errorHandler._500(err, res)
     }
 }
-
