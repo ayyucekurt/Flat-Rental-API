@@ -117,13 +117,6 @@ const changeReservationStatus = (status, req, res) => {
         })
 }
 
-var getDaysArray = function(start, end) {
-    for(var arr=[],dt=new Date(start); dt<=end; dt.setDate(dt.getDate()+1)){
-        arr.push(new Date(dt));
-    }
-    return arr;
-};
-
 const desiredDays = (checkInDate, checkOutDate) => {
     for(var arr=[], dt=new Date(checkInDate); dt <= checkOutDate; dt.setDate(dt.getDate() + 1)){
         arr.push(new Date(dt));

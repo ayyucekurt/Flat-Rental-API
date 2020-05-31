@@ -7,6 +7,7 @@ require('dotenv').config();
 const checkAuth = require('../middlewares/authenticationcontrol')
 const errorHandler = require('../handler/errorhandler')
 const successHandler = require('../handler/successhandler')
+const DateCorrector = require('../middlewares/datecorrector')
 const Rental = require('../model/rental')
 const Review = require('../model/rental').Review
 
@@ -16,7 +17,7 @@ router.get('/addReview', checkAuth, async (req, res) => {
         .then(rental => {
             rental.reviews.push(new Review({
                 _id: new mongoose.Types.ObjectId(),
-                reviewDate: Date.now(),
+                reviewDate: DateCorrector(new Date(Date.now())),
                 reviewPoint: req.body.reviewPoint,
                 reviewContent: req.body.reviewContent,
                 reviewerId: req.body.reviewerId

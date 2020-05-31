@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 require('dotenv').config();
-
+const DateCorrector = require('../middlewares/datecorrector')
 const errorHandler = require('../handler/errorhandler')
 const successHandler = require('../handler/successhandler')
 
@@ -15,9 +15,6 @@ router.post('/register', (req, res, next) => {
         .exec()
         .then(user => {
             if (user.length >= 1) {
-                /* return res.status(409).json({
-                    message: "User exists!"
-                }) */
                 return errorHandler._409(res)
             } else {
                 bcrypt.hash(req.body.password, 10, (err, hash) => {
@@ -32,7 +29,7 @@ router.post('/register', (req, res, next) => {
                             personalInfo: {
                                 name: req.body.info.name,
                                 surname: req.body.info.surname,
-                                birthOfDate: req.body.info.birthOfDate,
+                                birthOfDate: DateCorrector(new Date(req.body.info.birthOfDate)),
                                 phoneNumber: req.body.info.phoneNumber
                             }
                         })
