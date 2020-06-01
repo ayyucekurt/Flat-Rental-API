@@ -11,7 +11,7 @@ const DateCorrector = require('../middlewares/datecorrector')
 const Rental = require('../model/rental')
 const Review = require('../model/rental').Review
 
-router.get('/addReview', checkAuth, async (req, res) => {
+router.post('/addReview', checkAuth, async (req, res) => {
     Rental.findOne({ _id: req.body.rentalId })
         .exec()
         .then(rental => {

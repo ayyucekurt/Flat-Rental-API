@@ -61,7 +61,7 @@ router.post('/cancelReservation', checkAuth, (req, res) => {
     changeReservationStatus(reservationEnum.CANCELLED, req, res)
 })
 
-router.get('/getActiveReservations', checkAuth, async (req, res) => {
+router.post('/getActiveReservations', checkAuth, async (req, res) => {
     try {
         const reservations = await Reservation.find({ guestEmail: req.body.email,
             checkOutDate: { "$gte": new Date() },
@@ -72,7 +72,7 @@ router.get('/getActiveReservations', checkAuth, async (req, res) => {
     }
 })
 
-router.get('/getRejectedReservations', checkAuth, async (req, res) => {
+router.post('/getRejectedReservations', checkAuth, async (req, res) => {
     try {
         const reservations = await Reservation.find({ guestEmail: req.body.email,
             checkOutDate: { "$gte": new Date() },
@@ -83,7 +83,7 @@ router.get('/getRejectedReservations', checkAuth, async (req, res) => {
     }
 })
 
-router.get('/getAllReservationHistory', checkAuth, async (req, res) => {
+router.post('/getAllReservationHistory', checkAuth, async (req, res) => {
     try {
         const reservations = await Reservation.find({ guestEmail: req.body.email }).sort({ checkInDate: -1 })
         return Paginator(reservations, req, res)

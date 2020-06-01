@@ -177,7 +177,7 @@ router.post('/updateDescription', checkAuth, (req, res, next) => {
         })
 })
 
-router.get('/getSelectedRental', (req, res) => {
+router.post('/getSelectedRental', (req, res) => {
     Rental.findOne({ _id: req.body.id })
         .exec()
         .then(rental => {

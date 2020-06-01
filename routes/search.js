@@ -7,7 +7,7 @@ const Paginator = require('../middlewares/paginator')
 const Rentals = require('../model/rental');
 
 // Searching sorting can be made by different types - date old new etc
-router.get('/searchRentals', async (req, res) => {
+router.post('/searchRentals', async (req, res) => {
     try {
         const rentals = await Rentals.find({ 'locationInfo.country': req.body.location.country,
             'locationInfo.city': req.body.location.city,
@@ -18,7 +18,7 @@ router.get('/searchRentals', async (req, res) => {
     }
 })
 
-router.get('/getCheapestRentals', async (req, res) => {
+router.post('/getCheapestRentals', async (req, res) => {
     try {
         const rentals = await Rentals.find({ 'locationInfo.country': req.body.location.country,
             'locationInfo.city': req.body.location.city,
@@ -29,7 +29,7 @@ router.get('/getCheapestRentals', async (req, res) => {
     }
 })
 
-router.get('/getExpensiveRentals', async (req, res) => {
+router.post('/getExpensiveRentals', async (req, res) => {
     try {
         const rentals = await Rentals.find({ 'locationInfo.country': req.body.location.country,
             'locationInfo.city': req.body.location.city,
@@ -40,7 +40,7 @@ router.get('/getExpensiveRentals', async (req, res) => {
     }
 })
 
-router.get('/getHighestReviews', async (req, res) => {
+router.post('/getHighestReviews', async (req, res) => {
     try {
         const rentals = await Rentals.find({ 'locationInfo.country': req.body.location.country,
             'locationInfo.city': req.body.location.city,
@@ -51,7 +51,7 @@ router.get('/getHighestReviews', async (req, res) => {
     }
 })
 
-router.get('/getNewRentals', async (req, res) => {
+router.post('/getNewRentals', async (req, res) => {
     try {
         const rentals = await Rentals.find({ 'locationInfo.country': req.body.location.country,
             'locationInfo.city': req.body.location.city,
