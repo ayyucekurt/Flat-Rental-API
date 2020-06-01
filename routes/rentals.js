@@ -43,13 +43,16 @@ const upload = multer({
     fileFilter: fileFilter
 });
 
-router.post('/addNewRental', checkAuth, checkHosting, upload.single('photos'), (req, res, next) => {
-    console.log(req.file.path);
+router.post('/addNewRental', checkAuth, checkHosting, upload.array('photos', 6), (req, res, next) => {
     const rentalInfo = JSON.parse(req.body.info)
     const locationInfo = JSON.parse(req.body.location)
     const price = JSON.parse(req.body.price)
     const features = JSON.parse(req.body.features)
+    const photosArr = [];
 
+    req.files.forEach(file => {
+        photosArr.push(file.path)
+    })
 
     const rental = new Rental({
         _id: new mongoose.Types.ObjectId(),
@@ -70,7 +73,7 @@ router.post('/addNewRental', checkAuth, checkHosting, upload.single('photos'), (
             amount: price.amount,
             currency: price.currency
         },
-        photos: req.file.path,
+        photos: photosArr,
         features: features
     });
 

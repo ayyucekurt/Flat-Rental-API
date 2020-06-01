@@ -348,8 +348,16 @@
 							"formdata": [
 								{
 									"key": "photos",
+									"contentType": "",
 									"type": "file",
-									"src": "/Users/oguzkose/Desktop/Screen Shot 2020-03-17 at 13.52.04.png"
+									"src": [
+										"/Users/oguzkose/Desktop/Screen Shot 2020-03-17 at 13.52.04.png",
+										"/Users/oguzkose/Desktop/Screen Shot 2020-03-17 at 15.46.23.png",
+										"/Users/oguzkose/Desktop/Screen Shot 2020-03-17 at 17.00.30.png",
+										"/Users/oguzkose/Desktop/Screen Shot 2020-03-18 at 08.20.03.png",
+										"/Users/oguzkose/Desktop/Screen Shot 2020-03-18 at 11.33.50.png",
+										"/Users/oguzkose/Desktop/Screen Shot 2020-03-18 at 11.34.01.png"
+									]
 								},
 								{
 									"key": "email",
@@ -358,30 +366,18 @@
 								},
 								{
 									"key": "info",
-									"value": "{\n        \"roomCount\": 2,\n        \"bedCount\": 1,\n        \"bathCount\": 1,\n        \"maxGuestsCount\": 2,\n        \"description\": \"Çok güzel bir ev 3\"\n    }",
+									"value": "{\"roomCount\": 3,\"bedCount\": 3,\"bathCount\": 3,\"maxGuestsCount\": 2,\"description\": \"Çok güzel bir ev 6 fotolu\"}",
 									"type": "text"
 								},
 								{
 									"key": "location",
-									"value": "{\n        \"country\": \"Turkey\",\n        \"city\": \"İzmir\",\n        \"province\": \"Alsancak\"\n    }",
+									"value": "{\"country\": \"Turkey\",\"city\": \"İzmir\",\"province\": \"Alsancak\"}",
 									"type": "text"
 								},
 								{
 									"key": "price",
-									"value": "{\n        \"amount\": 180,\n        \"currency\": \"TRY\"\n    }",
+									"value": "{\"amount\": 180,\"currency\": \"TRY\"}",
 									"type": "text"
-								},
-								{
-									"key": "features[0]key",
-									"value": "Wifi",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "features[0]value",
-									"value": "true",
-									"type": "text",
-									"disabled": true
 								},
 								{
 									"key": "features",

@@ -59,7 +59,7 @@ const RentalSchema = new mongoose.Schema({
         type: [Date],
         required: false
     },
-    photos: String,
+    photos: [String],
     features: {
         type: [FeaturesSchema],
         required: true
