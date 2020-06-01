@@ -13,10 +13,13 @@ const User = require('../model/user');
 const Rental = require('../model/rental');
 const Feature = require('../model/rental').Feature;
 const multer = require('multer');
+const fs = require('fs')
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, './uploads/');
+        const path = `./uploads/${req.userData.userId}/`
+        fs.mkdirSync(path, { recursive: true })
+        cb(null, path);
     },
     filename: function(req, file, cb) {
         cb(null, Date().now + file.originalname);
@@ -41,30 +44,34 @@ const upload = multer({
 });
 
 router.post('/addNewRental', checkAuth, checkHosting, upload.single('photos'), (req, res, next) => {
-    console.log("efdv"+req.file.path);
-    const info = JSON.parse(req.body.info);
-    const loc = JSON.parse(req.body.location)
+    console.log(req.file.path);
+    const rentalInfo = JSON.parse(req.body.info)
+    const locationInfo = JSON.parse(req.body.location)
+    const price = JSON.parse(req.body.price)
+    const features = JSON.parse(req.body.features)
+
+
     const rental = new Rental({
         _id: new mongoose.Types.ObjectId(),
         email: req.body.email,
         rentalInfo: {
-            roomCount: info.roomCount,
-            bedCount: info.bedCount,
-            bathCount: req.body.info.bathCount,
-            maxGuestsCount: req.body.info.maxGuestsCount,
-            description: req.body.info.description
+            roomCount: rentalInfo.roomCount,
+            bedCount: rentalInfo.bedCount,
+            bathCount: rentalInfo.bathCount,
+            maxGuestsCount: rentalInfo.maxGuestsCount,
+            description: rentalInfo.description
         },
         locationInfo: {
-            country: req.body.location.country,
-            city: req.body.location.city,
-            province: req.body.location.province
+            country: locationInfo.country,
+            city: locationInfo.city,
+            province: locationInfo.province
         },
         price: {
-            amount: req.body.price.amount,
-            currency: req.body.price.currency
+            amount: price.amount,
+            currency: price.currency
         },
         photos: req.file.path,
-        features: req.body.features
+        features: features
     });
 
     rental.save()

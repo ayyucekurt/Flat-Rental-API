@@ -334,17 +334,61 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjk5ODE5LCJleHAiOjE1OTA3MDM0MTl9.gVtQTzfqybT3lKl5EiofecmswTvITEmdeYjwV7lt7YA",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkxMDI1ODc4LCJleHAiOjE1OTEwMjk0Nzh9.US_8Y5DCgKq_JduP09JvHD5l2s5Z_ISFMKuqxnWTuhs",
 								"type": "text"
 							}
 						],
 						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"oguzkose11@gmail.com\",\n    \"info\": {\n        \"roomCount\": 2,\n        \"bedCount\": 1,\n        \"bathCount\": 1,\n        \"maxGuestsCount\": 2,\n        \"description\": \"Çok güzel bir ev 3\"\n    },\n    \"location\": {\n        \"country\": \"Turkey\",\n        \"city\": \"İzmir\",\n        \"province\": \"Alsancak\"\n    },\n    \"price\": {\n        \"amount\": 180,\n        \"currency\": \"TRY\"\n    },\n    \"photos\": [\n        \"1\",\n        \"2\",\n        \"3\"\n    ],\n    \"features\": [\n        {\n            \"key\": \"Wifi\",\n            \"value\": \"true\"\n        },\n        {\n            \"key\": \"Balcony\",\n            \"value\": \"true\"\n        }\n    ]\n}"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photos",
+									"type": "file",
+									"src": "/Users/oguzkose/Desktop/Screen Shot 2020-03-17 at 13.52.04.png"
+								},
+								{
+									"key": "email",
+									"value": "oguzkose11@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "info",
+									"value": "{\n        \"roomCount\": 2,\n        \"bedCount\": 1,\n        \"bathCount\": 1,\n        \"maxGuestsCount\": 2,\n        \"description\": \"Çok güzel bir ev 3\"\n    }",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "{\n        \"country\": \"Turkey\",\n        \"city\": \"İzmir\",\n        \"province\": \"Alsancak\"\n    }",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "{\n        \"amount\": 180,\n        \"currency\": \"TRY\"\n    }",
+									"type": "text"
+								},
+								{
+									"key": "features[0]key",
+									"value": "Wifi",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "features[0]value",
+									"value": "true",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "features",
+									"value": "[ {\"key\":\"Wifi\", \"value\":\"true\"} ]",
+									"type": "text"
+								}
+							]
 						},
 						"url": {
 							"raw": "localhost:3000/rentals/addNewRental",
