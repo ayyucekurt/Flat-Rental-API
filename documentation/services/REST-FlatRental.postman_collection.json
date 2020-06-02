@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "478b1864-6bf5-416a-8bad-07f5f0db10cd",
-		"name": "REST-FlatRental",
+		"_postman_id": "e9a16b32-147d-4a44-aad6-d41946e03ab2",
+		"name": "Rental Management System",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -270,7 +270,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"oguzkose11@gmail.com\",\n\t\"password\": \"password\"\n}"
+							"raw": "{\n\t\"email\": \"oguzkose11@gmail.com\",\n\t\"password\": \"password111\"\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/authentication/login",
@@ -304,7 +304,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjkyNDAyLCJleHAiOjE1OTA2OTYwMDJ9.BfnG1bgGi_mvX9rjUng1SQlzu-JNPvexoYqhX0X7Cc0",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkxMTMyODQ2LCJleHAiOjE1OTExMzY0NDZ9.h3sNCnjhs96gj8IUQ9gQGYE6qE_-busrLwqZ3qomlB8",
 								"type": "text"
 							}
 						],
@@ -395,43 +395,6 @@
 							"path": [
 								"rentals",
 								"addNewRental"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetRentals",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9ndXprb3NlMTFAZ21haWwuY29tIiwidXNlcklkIjoiNWVjYWQwMTc2ZmQwYWM1MjVlMDI4ZGYxIiwiaWF0IjoxNTkwNjE0MjM3LCJleHAiOjE1OTA2MTc4Mzd9.THmpme3dAvNHeberhmmyKV_ztbzYaGGXu5yULDBLP_Y"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"location\": {\n        \"country\": \"Turkey\",\n        \"city\": \"Çanakkale\",\n        \"province\": \"Biga\"\n    },\n    \"page\":1,\n\t\"limit\":10\n}"
-						},
-						"url": {
-							"raw": "localhost:3000/rentals/getRentals",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"rentals",
-								"getRentals"
 							]
 						}
 					},
@@ -1073,7 +1036,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "b8fc4bf8-7c80-4972-a1cb-8a3acd9e1733",
+				"id": "6cf5ebfe-aae6-4a0b-90af-be44f74e8d67",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1083,7 +1046,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "0be94a31-d527-47e3-9026-cc50da2df38c",
+				"id": "c655d6bb-62b0-4102-afd0-225cdc6ebac6",
 				"type": "text/javascript",
 				"exec": [
 					""
